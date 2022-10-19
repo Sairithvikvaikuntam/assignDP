@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Facade extends JFrame {
+	static Login login;
 
 	private int UserType;
 
@@ -13,14 +14,14 @@ public class Facade extends JFrame {
 
 	private Person thePerson;
 
-	public void login(Facade f) {
-		f.setSize(600, 400);
-		f.setVisible(true);
-		f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		Login login = new Login();
-		f.UserType =  login.UserType;
+	public boolean login(Facade f) {
+		login = new Login();
 		setLayout(new BorderLayout());
 		add(login, BorderLayout.CENTER);
+		f.UserType =  login.UserType;
+		f.setVisible(true);
+		f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		return true;
 	}
 
 	public void addTrading() {
