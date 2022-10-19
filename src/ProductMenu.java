@@ -1,8 +1,10 @@
+import java.awt.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public abstract interface ProductMenu {
 
-	Person person = null;
-
-	public abstract void showMenu();
+	public Component showMenu() throws IOException;
 
 	public abstract void showAddButton();
 

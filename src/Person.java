@@ -1,8 +1,15 @@
+import java.awt.*;
+import java.io.IOException;
+
 public abstract class Person {
 
-	private ProductMenu productMenu;
+	protected ProductMenu productMenu;
 
-	public abstract void showMenu();
+	protected Person(ProductMenu productMenu){
+		this.productMenu = productMenu;
+	}
+
+	public abstract Component showMenu() throws IOException;
 
 	public void showAddButton() {
 
