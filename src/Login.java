@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Login extends JPanel implements ActionListener{
-    int userType;
+    int UserType = -1;
     JLabel password1;
     JLabel label;
     JTextField username;
@@ -65,6 +65,11 @@ public class Login extends JPanel implements ActionListener{
         try {
             String Username = username.getText();
             String password = new String(Password.getPassword());
+            if(b.isSelected()) {
+                UserType = 0;
+            } else if (s.isSelected()) {
+                UserType = 1;
+            }
             login(Username, password);
         } catch (IOException ex) {
             throw new RuntimeException(ex);
@@ -74,9 +79,9 @@ public class Login extends JPanel implements ActionListener{
     public boolean login(String username, String password) throws IOException {
         File file = null;
         if(b.isSelected()) {
-            file = new File("./src/Buyer.txt");
+            file = new File("./src/BuyerInfo.txt");
         } else if (s.isSelected()) {
-            file = new File("./src/Seller.txt");
+            file = new File("./src/SellerInfo.txt");
         }
         BufferedReader br = new BufferedReader(new FileReader(file));
         String s;
