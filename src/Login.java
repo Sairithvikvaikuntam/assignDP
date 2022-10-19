@@ -137,7 +137,7 @@ public class Login extends JPanel implements ActionListener{
                         removeAll();
                         revalidate();
                         setLayout(new BorderLayout());
-                        add(m.showMenu(), BorderLayout.CENTER);
+                        add(p1.showMenu(), BorderLayout.CENTER);
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
