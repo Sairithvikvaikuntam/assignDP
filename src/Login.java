@@ -148,6 +148,12 @@ public class Login extends JPanel implements ActionListener{
             });
             return true;
         } else {
+            JLabel i = new JLabel("INVALID CREDENTIALS. PLEASE TRY AGAIN.");
+            add(i);
+            revalidate();
+            i.setBounds(100,200,1000,100);
+            add(i);
+            revalidate();
             System.out.println("Invalid Credentials");
             return false;
         }
