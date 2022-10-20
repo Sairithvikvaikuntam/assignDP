@@ -14,6 +14,7 @@ public class Login extends JPanel implements ActionListener{
     JLabel password1;
     JLabel label;
     JTextField username;
+    JLabel h;
     JButton button,button1;
     JPasswordField Password;
     JRadioButton b,se,x,y;
@@ -78,12 +79,22 @@ public class Login extends JPanel implements ActionListener{
 
     public boolean login(String username, String password) throws IOException {
         File file = null;
-        if(b.isSelected()) {
+        if (b.isSelected()) {
             file = new File("./src/BuyerInfo.txt");
         } else if (se.isSelected()) {
             file = new File("./src/SellerInfo.txt");
         }
-        BufferedReader br = new BufferedReader(new FileReader(file));
+        BufferedReader br=null;
+        try {
+            br = new BufferedReader(new FileReader(file));
+        }
+        catch (Exception e){
+            h = new JLabel("Please Select User Type");
+            add(h);
+            h.setBounds(100,200,200,100);
+            revalidate();
+            System.out.println("Select User Type");
+        }
         Map<String, String> Credentials = new HashMap<>();
         String s;
         while ((s = br.readLine()) != null) {
@@ -148,6 +159,7 @@ public class Login extends JPanel implements ActionListener{
             });
             return true;
         } else {
+            h.setBounds(0, 0, 0, 0);
             JLabel i = new JLabel("INVALID CREDENTIALS. PLEASE TRY AGAIN.");
             add(i);
             i.setBounds(100,200,1000,100);
