@@ -19,5 +19,6 @@ public class Main{
         t.accept(new ReminderVisitor());
         ClassProductList c = new ClassProductList();
         c.accept(new ReminderVisitor());
+
     }
 }

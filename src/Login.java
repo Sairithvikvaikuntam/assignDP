@@ -126,9 +126,9 @@ public class Login extends JPanel implements ActionListener{
                     ProduceProductMenu p = new ProduceProductMenu();
                     try {
                         if(b.isSelected()) {
-                            p1 = new Buyer(p);
+                            p1 = new Buyer(username,p);
                         } else if (se.isSelected()) {
-                            p1 = new Seller(p);
+                            p1 = new Seller(username, p);
                         }
                         removeAll();
                         revalidate();
@@ -143,9 +143,9 @@ public class Login extends JPanel implements ActionListener{
                     MeatProductMenu m = new MeatProductMenu();
                     try {
                         if(b.isSelected()) {
-                            p1 = new Buyer(m);
+                            p1 = new Buyer(username, m);
                         } else if (se.isSelected()) {
-                            p1 = new Seller(m);
+                            p1 = new Seller(username, m);
                         }
                         removeAll();
                         revalidate();

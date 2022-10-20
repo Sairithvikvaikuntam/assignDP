@@ -1,16 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class Buyer extends Person {
-
-	protected Buyer(ProductMenu productMenu) {
-		super(productMenu);
+	protected Buyer(String username, ProductMenu productMenu) {
+		super(username, productMenu);
 	}
 
 	public Component showMenu() throws IOException {
-		JComponent x = (JComponent) productMenu.showMenu();
+		JComponent x = (JComponent) productMenu.showMenu(username);
 		return x;
 	}
 

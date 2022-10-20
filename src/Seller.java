@@ -4,12 +4,12 @@ import java.io.IOException;
 
 public class Seller extends Person {
 
-	protected Seller(ProductMenu productMenu) {
-		super(productMenu);
+	protected Seller(String username, ProductMenu productMenu) {
+		super(username,productMenu);
 	}
 
 	public Component showMenu() throws IOException {
-		JComponent x = (JComponent) productMenu.showMenu();
+		JComponent x = (JComponent) productMenu.showMenu(username);
 		return x;
 	}
 
