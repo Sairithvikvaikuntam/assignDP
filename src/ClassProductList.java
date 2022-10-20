@@ -29,7 +29,11 @@ public class ClassProductList extends ArrayList {
 		return productIterator;
 	}
 	public void accept(NodeVisitor visitor) {
-
+		ProductIterator itr = get_itr();
+		while(itr.hasNext()){
+			itr.next().accept(visitor);
+		}
+		visitor.visitProducts(this);
 	}
 
 }
