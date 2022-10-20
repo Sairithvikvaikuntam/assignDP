@@ -27,6 +27,8 @@ public abstract class Person {
 
 	}
 
-	public abstract ProductMenu createProductMenu();
+	public ProductMenu createProductMenu() {
+		return null;
+	}
 
 }

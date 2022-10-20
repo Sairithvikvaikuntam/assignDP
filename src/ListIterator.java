@@ -2,7 +2,7 @@ public abstract interface ListIterator {
 
 	public abstract boolean hasNext();
 
-	public abstract Product next();
+	public abstract Object next();
 
 	public abstract void remove();
 

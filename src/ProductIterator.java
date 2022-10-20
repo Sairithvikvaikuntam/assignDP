@@ -1,12 +1,23 @@
 public class ProductIterator implements ListIterator {
 
-	private ClassProductList classProductList;
+	ClassProductList cpl;
+	int index;
+	public ProductIterator(ClassProductList cpl) {
+		this.cpl = cpl;
+		index = 0;
+	}
 
 	public boolean hasNext() {
+		if(index<cpl.size()) {
+			return true;
+		}
 		return false;
 	}
 
-	public Product next() {
+	public Offering next() {
+		if(this.hasNext()){
+			return (Offering) cpl.get(index++);
+		}
 		return null;
 	}
 
@@ -15,7 +26,7 @@ public class ProductIterator implements ListIterator {
 	}
 
 	public void remove() {
-
+		cpl.remove(index);
 	}
 
 }

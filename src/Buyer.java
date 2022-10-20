@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Buyer extends Person {
 
@@ -14,7 +15,13 @@ public class Buyer extends Person {
 	}
 
 	public ProductMenu createProductMenu() {
-		return null;
+		ProductMenu bpm=null;
+		if(Login.menuType=="Produce"){
+			bpm = new ProduceProductMenu();
+		} else if (Login.menuType=="Meat") {
+			bpm = new MeatProductMenu();
+		}
+		return bpm;
 	}
 
 }

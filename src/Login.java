@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Login extends JPanel implements ActionListener{
-    int UserType = -1;
+    public static int UserType = -1;
     JLabel password1;
     JLabel label;
     JTextField username;
@@ -18,7 +18,7 @@ public class Login extends JPanel implements ActionListener{
     JPasswordField Password;
     JRadioButton b,se,x,y;
     Person p1;
-
+    public static String menuType=null;
     Login(){
         setLayout(null);
 
@@ -111,6 +111,7 @@ public class Login extends JPanel implements ActionListener{
             revalidate();
             button1.addActionListener(e -> {
                 if (x.isSelected()){
+                    menuType = "Produce";
                     ProduceProductMenu p = new ProduceProductMenu();
                     try {
                         if(b.isSelected()) {
@@ -127,6 +128,7 @@ public class Login extends JPanel implements ActionListener{
                     }
                     revalidate();
                 } else if (y.isSelected()) {
+                    menuType = "Meat";
                     MeatProductMenu m = new MeatProductMenu();
                     try {
                         if(b.isSelected()) {

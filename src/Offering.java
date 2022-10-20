@@ -1,5 +1,3 @@
-public class Offering {
-
-	private OfferingList offeringList;
+public class Offering extends Object {
 
 }

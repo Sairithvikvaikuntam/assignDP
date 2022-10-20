@@ -14,7 +14,13 @@ public class Seller extends Person {
 	}
 
 	public ProductMenu createProductMenu() {
-		return null;
+		ProductMenu spm=null;
+		if(Login.menuType == "Produce"){
+			spm = new ProduceProductMenu();
+		} else if (Login.menuType == "Meat") {
+			spm = new MeatProductMenu();
+		}
+		return spm;
 	}
 
 }
