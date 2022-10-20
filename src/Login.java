@@ -87,7 +87,7 @@ public class Login extends JPanel implements ActionListener{
         Map<String, String> Credentials = new HashMap<>();
         String s;
         while ((s = br.readLine()) != null) {
-            String[] Cred = s.split(" ");
+            String[] Cred = s.split(":");
             Credentials.put(Cred[0], Cred[1]);
         }
         if (Credentials.containsKey(username) && Credentials.get(username).equals(password)) {
