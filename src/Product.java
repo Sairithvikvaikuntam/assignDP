@@ -1,6 +1,4 @@
-public class Product {
-
-	private ClassProductList classProductList;
+public class Product extends Object{
 
 	private Trading trading;
 

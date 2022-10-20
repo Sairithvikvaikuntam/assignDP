@@ -9,7 +9,12 @@ public class Main{
         f.login(f);
     }
     public static void main(String[] args) {
-        System.out.println("Hello world!");
         Main m = new Main();
+        OfferingList l = new OfferingList();
+        OfferingIterator l_itr = l.get_itr();
+        while(l_itr.hasNext()){
+            System.out.println(l_itr.next());
+        }
+
     }
 }
