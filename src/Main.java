@@ -15,6 +15,10 @@ public class Main{
         while(l_itr.hasNext()){
             System.out.println(l_itr.next());
         }
+        Trading t = new Trading();
+        t.accept(new ReminderVisitor());
+        ClassProductList c = new ClassProductList();
+        c.accept(new ReminderVisitor());
 
     }
 }

@@ -68,4 +68,8 @@ public class Facade extends JFrame {
 
 	}
 
+	public void accept(NodeVisitor visitor){
+		visitor.visitFacade(this);
+	}
+
 }

@@ -8,15 +8,15 @@ public class ProductIterator implements ListIterator {
 	}
 
 	public boolean hasNext() {
-		if(index<cpl.size()) {
+		if(index<cpl.cpl.size()) {
 			return true;
 		}
 		return false;
 	}
 
-	public Offering next() {
+	public Product next() {
 		if(this.hasNext()){
-			return (Offering) cpl.get(index++);
+			return cpl.cpl.get(index++);
 		}
 		return null;
 	}
