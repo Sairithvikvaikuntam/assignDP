@@ -10,7 +10,7 @@ public class Main{
         f.login(f);
     }
     public static void main(String[] args) throws IOException {
-        System.out.println("\n         <<<<<<<<<<<<< Facade Pattern >>>>>>>>>>>>>   \n");
+        System.out.println("\n                <<<<<<<<<<<<< Facade Pattern >>>>>>>>>>>>>   \n");
         Main m = new Main();
     }
 }

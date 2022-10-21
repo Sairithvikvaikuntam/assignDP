@@ -19,10 +19,10 @@ public class Login extends JPanel implements ActionListener{
     JLabel h;
     JButton button,button1;
     JPasswordField Password;
-    JRadioButton b;
-    JRadioButton se;
+    static JRadioButton b;
+    static JRadioButton se;
     static JRadioButton x;
-    JRadioButton y;
+    static JRadioButton y;
     Person p1,a;
     public static String menuType=null;
     Login(){
