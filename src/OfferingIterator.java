@@ -8,15 +8,15 @@ public class OfferingIterator implements ListIterator {
 	}
 
 	public boolean hasNext() {
-		if(index<ol.ol.size()) {
+		if(index<ol.oList.size()) {
 			return true;
 		}
 		return false;
 	}
 
-	public Offering next() {
+	public String next() {
 		if(this.hasNext()){
-			return (Offering) ol.ol.get(index++);
+			return (String) ol.oList.get(index++);
 		}
 		return null;
 	}

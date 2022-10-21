@@ -10,6 +10,10 @@ public abstract class Person {
 		this.productMenu = productMenu;
 	}
 
+    public Person() {
+
+    }
+
 	public abstract Component showMenu() throws IOException;
 
 	public void showAddButton() {

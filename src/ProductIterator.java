@@ -14,9 +14,9 @@ public class ProductIterator implements ListIterator {
 		return false;
 	}
 
-	public Product next() {
+	public String next() {
 		if(this.hasNext()){
-			return cpl.cpl.get(index++);
+			return cpl.cpl.get(index++).toString();
 		}
 		return null;
 	}

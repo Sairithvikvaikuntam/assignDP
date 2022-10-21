@@ -5,15 +5,17 @@ import java.util.ArrayList;
 
 public class ProduceProductMenu extends JPanel implements ProductMenu{
 	static JList jl;
+	static ArrayList<String> userMenu;
 
 	public Component showMenu(String username) throws IOException {
+		System.out.println("\n Showing Menu using the Bridge Pattern in GUI");
 		File file = new File("./src/ProductInfo.txt");
 		File file2 = new File("./src/UserProduct.txt");
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		ArrayList<String> produceMenu = new ArrayList<>();
 		String s;
 		BufferedReader br2 = new BufferedReader(new FileReader(file2));
-		ArrayList<String> userMenu = new ArrayList<>();
+		userMenu = new ArrayList<>();
 		String s2;
 		while ((s2 = br2.readLine()) != null){
 			String[] u = s2.split(":");
@@ -27,6 +29,9 @@ public class ProduceProductMenu extends JPanel implements ProductMenu{
 				produceMenu.add(prod[1]);
 			}
 		}
+		System.out.println("\n               <<<<<<<<<<<<< Visitor Pattern >>>>>>>>>>>>>\n");
+		Trading t = new Trading();
+		t.accept(new ReminderVisitor());
 		userMenu.retainAll(produceMenu);
 		StringBuilder text = new StringBuilder();
 		for (int i=0; i<userMenu.size();i++){

@@ -10,7 +10,13 @@ public class ReminderVisitor extends NodeVisitor {
 	}
 
 	public void visitTrading(Trading trading) {
-		System.out.println("This is Trading: "+ trading);
+		if (Login.x.isSelected()) {
+			System.out.println(Login.Username+" is Trading: " + ProduceProductMenu.userMenu);
+		}
+		else{
+			System.out.println(Login.Username+" is Trading: " + MeatProductMenu.userMenu);
+		}
+
 	}
 
 	public void visitFacade(Facade facade) {

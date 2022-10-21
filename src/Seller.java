@@ -8,7 +8,11 @@ public class Seller extends Person {
 		super(username,productMenu);
 	}
 
-	public Component showMenu() throws IOException {
+    public Seller() {
+
+    }
+
+    public Component showMenu() throws IOException {
 		JComponent x = (JComponent) productMenu.showMenu(username);
 		return x;
 	}
