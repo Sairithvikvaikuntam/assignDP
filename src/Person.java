@@ -4,10 +4,15 @@ import java.io.IOException;
 public abstract class Person {
 
 	protected ProductMenu productMenu;
-
-	protected Person(ProductMenu productMenu){
+	String username;
+	protected Person(String username, ProductMenu productMenu){
+		this.username = username;
 		this.productMenu = productMenu;
 	}
+
+    public Person() {
+
+    }
 
 	public abstract Component showMenu() throws IOException;
 

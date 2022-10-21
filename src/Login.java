@@ -11,14 +11,19 @@ import java.util.Map;
 
 public class Login extends JPanel implements ActionListener{
     public static int UserType = -1;
+    static String Username;
+
     JLabel password1;
     JLabel label;
     JTextField username;
     JLabel h;
     JButton button,button1;
     JPasswordField Password;
-    JRadioButton b,se,x,y;
-    Person p1;
+    JRadioButton b;
+    JRadioButton se;
+    static JRadioButton x;
+    JRadioButton y;
+    Person p1,a;
     public static String menuType=null;
     Login(){
         setLayout(null);
@@ -64,7 +69,7 @@ public class Login extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            String Username = username.getText();
+            Username = username.getText();
             String password = new String(Password.getPassword());
             if(b.isSelected()) {
                 UserType = 0;
@@ -81,8 +86,10 @@ public class Login extends JPanel implements ActionListener{
         File file = null;
         if (b.isSelected()) {
             file = new File("./src/BuyerInfo.txt");
+            a = new Buyer();
         } else if (se.isSelected()) {
             file = new File("./src/SellerInfo.txt");
+            a = new Seller();
         }
         BufferedReader br=null;
         try {
@@ -123,16 +130,19 @@ public class Login extends JPanel implements ActionListener{
             button1.addActionListener(e -> {
                 if (x.isSelected()){
                     menuType = "Produce";
-                    ProduceProductMenu p = new ProduceProductMenu();
+                    ProduceProductMenu p = (ProduceProductMenu) a.createProductMenu();
+                    System.out.println("\n             <<<<<<<<<<<<< Factory Pattern >>>>>>>>>>>>>\n");
+                    System.out.println("Object of Menu generated on the GUI is using the Factory method pattern");
                     try {
                         if(b.isSelected()) {
-                            p1 = new Buyer(p);
+                            p1 = new Buyer(username,p);
                         } else if (se.isSelected()) {
-                            p1 = new Seller(p);
+                            p1 = new Seller(username, p);
                         }
                         removeAll();
                         revalidate();
                         setLayout(new BorderLayout());
+                        System.out.println("\n              <<<<<<<<<<<<< Bridge Pattern >>>>>>>>>>>>>\n");
                         add(p1.showMenu(), BorderLayout.CENTER);
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -140,16 +150,19 @@ public class Login extends JPanel implements ActionListener{
                     revalidate();
                 } else if (y.isSelected()) {
                     menuType = "Meat";
-                    MeatProductMenu m = new MeatProductMenu();
+                    MeatProductMenu m = (MeatProductMenu) a.createProductMenu();
+                    System.out.println("\n             <<<<<<<<<<<<< Factory Pattern >>>>>>>>>>>>>\n");
+                    System.out.println("Object of Menu generated on the GUI is using the Factory method pattern");
                     try {
                         if(b.isSelected()) {
-                            p1 = new Buyer(m);
+                            p1 = new Buyer(username, m);
                         } else if (se.isSelected()) {
-                            p1 = new Seller(m);
+                            p1 = new Seller(username, m);
                         }
                         removeAll();
                         revalidate();
                         setLayout(new BorderLayout());
+                        System.out.println("\n              <<<<<<<<<<<<< Bridge Pattern >>>>>>>>>>>>>\n");
                         add(p1.showMenu(), BorderLayout.CENTER);
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -157,9 +170,18 @@ public class Login extends JPanel implements ActionListener{
                     revalidate();
                 }
             });
+            System.out.println("\n              <<<<<<<<<<<<< Iterator Pattern >>>>>>>>>>>>>\n");
+            System.out.println("\n Offering List \n");
+            OfferingList l = new OfferingList();
+            OfferingIterator l_itr = l.get_itr();
+            while(l_itr.hasNext()){
+                System.out.println(l_itr.next());
+            }
             return true;
         } else {
-            h.setBounds(0, 0, 0, 0);
+            if(this.h!=null) {
+                h.setBounds(0, 0, 0, 0);
+            }
             JLabel i = new JLabel("INVALID CREDENTIALS. PLEASE TRY AGAIN.");
             add(i);
             i.setBounds(100,200,1000,100);

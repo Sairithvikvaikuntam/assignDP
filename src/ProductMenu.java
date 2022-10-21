@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public abstract interface ProductMenu {
 
-	public Component showMenu() throws IOException;
+	public Component showMenu(String username) throws IOException;
 
 	public abstract void showAddButton();
 
