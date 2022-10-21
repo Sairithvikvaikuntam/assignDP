@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class Facade extends JFrame {
 	static Login login;
@@ -24,6 +25,29 @@ public class Facade extends JFrame {
 		return true;
 	}
 
+	public void accept(NodeVisitor visitor){
+		visitor.visitFacade(this);
+	}
+
+	public void createProductList() {
+		Person p = null;
+		if(Login.b.isSelected()){
+			p = new Buyer();
+		} else if (Login.se.isSelected()) {
+			p = new Seller();
+		}
+		p.createProductMenu();
+	}
+
+	public void showMenu() throws IOException {
+		ProductMenu pm = null;
+		if(Login.x.isSelected()){
+			pm = new ProduceProductMenu();
+		} else if (Login.y.isSelected()) {
+			pm = new MeatProductMenu();
+		}
+		pm.showMenu(Login.Username);
+	}
 	public void addTrading() {
 
 	}
@@ -52,10 +76,6 @@ public class Facade extends JFrame {
 
 	}
 
-	public void createProductList() {
-
-	}
-
 	public void AttachProductToUser() {
 
 	}
@@ -66,10 +86,6 @@ public class Facade extends JFrame {
 
 	public void productOperation() {
 
-	}
-
-	public void accept(NodeVisitor visitor){
-		visitor.visitFacade(this);
 	}
 
 }
